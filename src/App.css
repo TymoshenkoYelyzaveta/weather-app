@@ -1,38 +1,96 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+    min-height: 100vh;
+    background-image: linear-gradient(to right, #5ad7d5, #6ce9e7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.weather-container {
+    background: white;
+    height: 80vh;
+    width: 60%;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.3)
+    );
+    border-radius: 2rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.weather-temperature {
+  color: #7fbdef;
+  font-size: 50px;
+  margin-top: 20px;
+  margin-bottom: 0px;
 }
 
-.App-link {
-  color: #61dafb;
+.city {
+    color: #7fbdef;
+    font-size: 60px;
+    font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.emoji-main {
+    font-size: 100px;
+    line-height: 1;
+}
+
+.emoji-secondary {
+    font-size: 30px;
+}
+.weather-description {
+    margin-top: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        to left top,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0.5)
+    );
+    border-radius: 1rem;
+    margin: 2rem .7rem;
+    padding: 1.5rem;
+    box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
+}
+
+
+.box p {
+  margin-top: 20px;
+}
+
+.date{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.date p{
+  display: inline;
+}
+
+.weather-image {
+    height: 70px;
+    width: 70px;
 }

@@ -81,7 +81,7 @@ export const weatherConditions = [
     },
     {
         id: 801,
-        icon: `/038-cloudy.svg`,
+        icon: `/038-cloudy-3.svg`,
     },
     {
         id: 802,

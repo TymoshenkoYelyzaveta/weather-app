@@ -1,12 +1,7 @@
 import React from 'react'
+import { formatted } from './../helpers'
 const ICONS_FOLDER = `${process.env.PUBLIC_URL}/icons`
 
-const formatted = (epoch, locale = 'en-IN') => {
-    let date = new Date()
-    date.setUTCSeconds(epoch)
-
-    return date.toLocaleTimeString(locale)
-}
 
 const SunriseSunset = ({ sunrise, sunset }) => {
     return (

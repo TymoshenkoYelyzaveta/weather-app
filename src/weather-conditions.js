@@ -97,7 +97,7 @@ export const weatherConditions = [
     },
     {
         id: 500,
-        icon: `/034-cloudy.svg`,
+        icon: `/034-cloudy-1.svg`,
     },
     {
         id: 501,
@@ -137,7 +137,7 @@ export const weatherConditions = [
     },
     {
         id: 600,
-        icon: `/035-snowy.svg`,
+        icon: `/035-snowy-2.svg`,
     },
     {
         id: 601,

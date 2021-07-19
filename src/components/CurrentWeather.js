@@ -11,8 +11,8 @@ import AtmosphericData from './AtmosphericData'
 const ICONS_FOLDER = `${process.env.PUBLIC_URL}/icons`
 
 const CurrentWeather = () => {
-    const [lat, setLat] = useState([])
-    const [long, setLong] = useState([])
+    const [lat, setLat] = useState("")
+    const [long, setLong] = useState("")
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -38,7 +38,7 @@ const CurrentWeather = () => {
 
     return (
         <>
-            {typeof data.main != 'undefined' ? (
+            {(lat && long && typeof data.main !== 'undefined') ? (
                 <div className='weather-display'>
                     <Date />
                     <City cityName={data.name} />

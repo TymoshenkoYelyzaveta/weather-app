@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Dimmer, Loader } from 'semantic-ui-react'
+import {uid} from 'react-uid'
 import moment from 'moment'
-import WeatherImage from './WeatherImage'
 import { weatherConditions } from './../weather-conditions'
 import { formattedDate, getYearFromDate } from './../helpers.js'
 
 const ICONS_FOLDER = `${process.env.PUBLIC_URL}/icons`
 
 const HourlyForecast = () => {
-    const [lat, setLat] = useState([])
-    const [long, setLong] = useState([])
+    const [lat, setLat] = useState("")
+    const [long, setLong] = useState("")
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -43,20 +43,19 @@ const HourlyForecast = () => {
 
     return (
         <>
-            {data ? (
+            {(lat && long && data.main !== 'undefined' )? (
                 <div className='weather-display'>
                     <div className='hourly-weather-display'>
                         {data?.hourly &&
                             Object?.values?.(
                                 datesGroupByComponent(data?.hourly, 'D')
                             )?.map?.((day) => (
-                                <div className='hourly-weather-day-forecast'>
+                                <div className='hourly-weather-day-forecast' key={uid(day)}>
                                     <h3 className='hourly-weather-day'>
                                         {formattedDate(day[0].dt)}
                                     </h3>
-                                    <div classNames='hourly-weather-boxes'>
-                                        {day.map((hour) => (
-                                            <div className='hourly-weather-box'>
+                                    {day.map((hour) => (
+                                            <div className='hourly-weather-box' key={uid(hour)}>
                                                 <div>
                                                     <p>
                                                         {getYearFromDate(
@@ -73,19 +72,16 @@ const HourlyForecast = () => {
                                                         src={`${ICONS_FOLDER}${getWeatherImagePath(
                                                             hour.weather[0].id
                                                         )}`}
+                                                        alt="Weather"
                                                     />
                                                 </div>
                                                 <div>
                                                     <p>
-                                                        {
-                                                            hour.weather[0]
-                                                                .description
-                                                        }
+                                                        {hour.weather[0].description}
                                                     </p>
                                                 </div>
                                             </div>
                                         ))}
-                                    </div>
                                 </div>
                             ))}
                     </div>

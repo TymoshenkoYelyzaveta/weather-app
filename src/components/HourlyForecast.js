@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Dimmer, Loader } from 'semantic-ui-react'
 import {uid} from 'react-uid'
 import moment from 'moment'
@@ -7,28 +7,7 @@ import { formattedDate, getYearFromDate } from './../helpers.js'
 
 const ICONS_FOLDER = `${process.env.PUBLIC_URL}/icons`
 
-const HourlyForecast = () => {
-    const [lat, setLat] = useState("")
-    const [long, setLong] = useState("")
-    const [data, setData] = useState([])
-
-    useEffect(() => {
-        const fetchData = async () => {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                setLat(position.coords.latitude)
-                setLong(position.coords.longitude)
-            })
-
-            await fetch(
-                `${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
-            )
-                .then((res) => res.json())
-                .then((result) => {
-                    setData(result)
-                })
-        }
-        fetchData()
-    }, [lat, long])
+const HourlyForecast = ({lat, long, data }) => {
 
     const getWeatherImagePath = (id) =>
         weatherConditions.find((icon) => icon.id === id).icon

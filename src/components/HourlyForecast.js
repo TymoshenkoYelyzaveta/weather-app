@@ -7,7 +7,7 @@ import { formattedDate, getYearFromDate } from './../helpers.js'
 
 const ICONS_FOLDER = `${process.env.PUBLIC_URL}/icons`
 
-const HourlyForecast = ({lat, long, data }) => {
+const HourlyForecast = ({ data }) => {
 
     const getWeatherImagePath = (id) =>
         weatherConditions.find((icon) => icon.id === id).icon
@@ -22,7 +22,7 @@ const HourlyForecast = ({lat, long, data }) => {
 
     return (
         <>
-            {(lat && long && data.main !== 'undefined' )? (
+            {(data)? (
                 <div className='weather-display'>
                     <div className='hourly-weather-display'>
                         {data?.hourly &&

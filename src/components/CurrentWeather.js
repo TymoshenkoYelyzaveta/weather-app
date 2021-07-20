@@ -10,14 +10,14 @@ import AtmosphericData from './AtmosphericData'
 
 const ICONS_FOLDER = `${process.env.PUBLIC_URL}/icons`
 
-const CurrentWeather = ({ lat, long, data }) => {
+const CurrentWeather = ({ data }) => {
 
     const getWeatherImagePath = () =>
         weatherConditions.find((icon) => icon.id === data?.weather[0].id).icon
 
     return (
         <>
-            {(lat && long && typeof data.main !== 'undefined') ? (
+            {(typeof data?.main !== 'undefined') ? (
                 <div className='weather-display'>
                     <Date />
                     <City cityName={data.name} />

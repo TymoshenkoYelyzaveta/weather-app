@@ -11,11 +11,9 @@ const SideMenu = () => (
         </div>
         <div className='links'>
                 <Link className='link' to='/'>
-                    {/* <img src={`${ICONS_FOLDER}/home.svg`} alt='Home' /> */}
                     <h2>Current Weather</h2>
                 </Link>
                 <Link className='link' to='/hourly-forecast'>
-                    {/* <img src={`${ICONS_FOLDER}/clock.svg`} alt='Hourly' /> */}
                     <h2>Hourly forecast</h2>
                 </Link>
         </div>

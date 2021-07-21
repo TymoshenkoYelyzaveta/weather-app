@@ -21,19 +21,30 @@ const App = () => {
                         getCurrentData(lat, long),
                         getHourlyData(lat, long)
                     ])
-                });
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
         };
 
         fetchData();
     }, []);
 
 
+    /**
+     * Get promise with latitude and longitude properties
+     * @returns {Promise}
+     */
     const getPosition = () => {
         return new Promise((res, rej) => {
             navigator.geolocation.getCurrentPosition(res, rej);
         })
     };
 
+    /**
+     * Get current weather data from api
+     * @returns {Promise}
+     */
     const getCurrentData = (lat, long) => {
         const currentDataUrl = `${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
 
@@ -42,6 +53,10 @@ const App = () => {
             .then(json => setCurrentData(json))
     }
 
+    /**
+     * Get hourly weather data from api
+     * @returns {Promise}
+     */
     const getHourlyData = (lat, long) => {
         const hourlyDataUrl = `${process.env.REACT_APP_API_URL}/onecall?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`;
 

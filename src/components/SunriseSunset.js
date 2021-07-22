@@ -1,5 +1,5 @@
 import React from 'react'
-import { formatted } from './../helpers'
+import { formatted } from '../utils'
 const ICONS_FOLDER = `${process.env.PUBLIC_URL}/icons`
 
 

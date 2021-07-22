@@ -10,11 +10,11 @@ const SideMenu = () => (
             <h3>Weather App</h3>
         </div>
         <div className='links'>
-                <Link className='link' to='/'>
+                <Link className='link' to='/' id="current-weather">
                     <h2>Current Weather</h2>
                 </Link>
-                <Link className='link' to='/hourly-forecast'>
-                    <h2>Hourly forecast</h2>
+                <Link className='link' to='/hourly-forecast' id="hourly-forecast">
+                    <h2>Hourly Forecast</h2>
                 </Link>
         </div>
     </div>

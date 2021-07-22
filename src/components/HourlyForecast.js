@@ -1,9 +1,9 @@
 import React from 'react'
 import { Dimmer, Loader } from 'semantic-ui-react'
 import {uid} from 'react-uid'
-import moment from 'moment'
 import { weatherConditions } from './../weather-conditions'
-import { formattedDate, getYearFromDate } from './../helpers.js'
+import { formattedDate, getYearFromDate } from '../utils.js'
+import { hoursGroupedByDate } from '../helpers/hoursGroupedByDate'
 
 const ICONS_FOLDER = `${process.env.PUBLIC_URL}/icons`
 
@@ -11,21 +11,6 @@ const HourlyForecast = ({ data }) => {
 
     const getWeatherImagePath = id =>
         weatherConditions.find(icon => icon.id === id).icon
-
-    /**
-     * Groups hour records by date
-     * @param {object} dates
-     * @param {string} token
-     * @returns {object}
-    */
-   //TODO - formatting of the function
-    const hoursGroupedByDate = (dates, token) => {
-        return dates?.reduce((val, obj) => {
-            let comp = moment(obj['dt'], 'X').format(token)
-            ;(val[comp] = val[comp] || []).push(obj)
-            return val
-        }, {})
-    }
 
     return (
         <>
